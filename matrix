@@ -1,0 +1,58 @@
+#! /bin/bash
+
+clear
+msg1="Wake up, $(whoami)..."
+msg2="The Matrix has you..."
+msg3="Follow the white rabbit."
+msg4="Knock, knock, $(whoami)."
+
+#kill the cursor
+setterm -cursor off
+sleep 5
+
+#cursor "magically" comes on
+setterm -cursor on
+sleep 5
+
+#message 1
+for ((i=0; i<${#msg1}; i++))
+do
+        echo "after 150" | tclsh
+        printf "${msg1:$i:1}"
+done
+sleep 12
+clear
+
+#message 2
+for ((i=0; i<${#msg2}; i++))
+do
+        echo "after 75" | tclsh
+        printf "${msg2:$i:1}"
+done
+sleep 12
+clear
+
+#message 3
+for ((i=0; i<${#msg3}; i++))
+do
+        echo "after 90" | tclsh
+        printf "${msg3:$i:1}"
+done
+sleep 6
+clear
+
+#message 4 does not type out it is a completed message displayed to the screen at once.
+#this sleep is for timing
+sleep .5
+
+#message 4
+echo -n $msg4
+sleep 4
+clear
+
+#kill the cursor 
+setterm -cursor off
+sleep 20
+#turn the cursor back on before exiting the program
+setterm -cursor on
+
